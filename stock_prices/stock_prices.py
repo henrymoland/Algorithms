@@ -3,7 +3,21 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+
+  # Base case: If there is 1 stock prices there is nothing to subtract so there is no profit
+  if len(prices) <= 1:
+    return 0
+  else:
+    #calculate maximum profit
+    maxProfit = prices[1] - prices[0]
+
+    for i in range(len(prices)):
+      for j in range(i+1, len(prices)):
+        if (prices[j] - prices[i]) > maxProfit:
+          maxProfit = prices[j] - prices[i]
+  
+  return maxProfit
+
 
 
 if __name__ == '__main__':
